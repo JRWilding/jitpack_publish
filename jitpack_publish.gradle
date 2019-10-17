@@ -5,28 +5,12 @@ task androidSourcesJar(type: Jar) {
 	from android.sourceSets.main.java.sourceFiles
 }
 
-/*
-task androidJavadocs(type: Javadoc) {
-	source += files(android.sourceSets.main.java.srcDirs)
-	options {
-	    linksOffline 'https://developer.android.com/reference/', "file:///${android.sdkDirectory}/docs/reference/"
-	}
-	exclude '**/*.cpp', '**/*.groovy', '**/*.kt', '**/*.md', '**/R.html', '**/R.*.html'
-}
-
-task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-	classifier = 'javadoc'
-	from androidJavadocs.destinationDir
-}
-*/
-
 publishing {
 	publications {
 		mavenAar(MavenPublication) {
 			from components.android
 
 			artifact androidSourcesJar
-			//artifact androidJavadocsJar
 
 			pom {
 				group = GROUP
