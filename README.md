@@ -4,12 +4,14 @@ This is a quick script to help publish private github repos to private jitpack.i
 
 ## publish library
 
-Add
-`authToken={auth token from jitpack}`
+###Add
+```
+authToken={auth token from jitpack}
+```
 to your ~./gradle/gradle.properties file
 Grab your access token from https://jitpack.io/w/user
 
-Add
+###Add
 ```
 GROUP={your group id}
 ARTIFACT_ID={your artifact id}
@@ -19,7 +21,7 @@ to your library's project/gradle.properties file
 Your group id will likely be com.github.{githubUserName} e.g. com.github.JRWilding
 Your artifact id is whatever you want e.g. awesome_library
 
-Add
+###Add
 ```
 plugins {
 	id "digital.wup.android-maven-publish" version "3.6.2"
@@ -27,13 +29,15 @@ plugins {
 ```
 To your library's build.gradle file
 
-`apply from: 'https://raw.githubusercontent.com/JRWilding/jitpack_publish/master/jitpack_publish.gradle'`
-
+###Add
+```
+apply from: 'https://raw.githubusercontent.com/JRWilding/jitpack_publish/master/jitpack_publish.gradle'
+```
 To your library's project/build.gradle file
 
 ## use library as dependency
 
-Add
+###Add
 ```
 apply from: 'https://raw.githubusercontent.com/JRWilding/jitpack_publish/master/jitpack_publish.gradle'
 dependencies {
