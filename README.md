@@ -1,6 +1,6 @@
 # jitpack_publish
 
-This is a quick script to help publish private github repos to private jitpack.io repository (subscription required)
+This is a quick script to help publish private github repos for android libraries to private jitpack.io repository (subscription required)
 
 ## publish library
 
