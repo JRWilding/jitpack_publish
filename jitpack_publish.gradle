@@ -1,0 +1,45 @@
+apply plugin: "digital.wup.android-maven-publish"
+
+task androidSourcesJar(type: Jar) {
+	classifier = 'sources'
+	from android.sourceSets.main.java.sourceFiles
+}
+
+task androidJavadocs(type: Javadoc) {
+	source = android.sourceSets.main.java
+}
+
+task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+	classifier = 'javadoc'
+	from androidJavadocs.destinationDir
+}
+
+publishing {
+	publications {
+		mavenAar(MavenPublication) {
+			from components.android
+
+			artifact androidSourcesJar
+			artifact androidJavadocsJar
+
+			pom {
+				group = GROUP
+				artifactId = ARTIFACT_ID
+				version = VERSION_NAME
+			}
+		}
+	}
+	repositories {
+		maven {
+			url = 'https://jitpack.io'
+			credentials { username authToken }
+		}
+	}
+}
+
+repositories {
+	maven {
+		url "https://jitpack.io"
+		credentials { username authToken }
+	}
+}
