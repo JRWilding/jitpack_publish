@@ -39,7 +39,7 @@ To your library's project/build.gradle file
 
 ### Add
 ```
-apply from: 'https://raw.githubusercontent.com/JRWilding/jitpack_publish/master/jitpack_publish.gradle'
+apply from: 'https://raw.githubusercontent.com/JRWilding/jitpack_publish/master/jitpack_repo.gradle'
 dependencies {
   implementation ('{group id}:{artifact id}:{version}')
 }
@@ -48,7 +48,7 @@ in your app project's build.gradle file using the same group and artifact ids of
 
 e.g.
 ```
-apply from: 'https://raw.githubusercontent.com/JRWilding/jitpack_publish/master/jitpack_publish.gradle'
+apply from: 'https://raw.githubusercontent.com/JRWilding/jitpack_publish/master/jitpack_repo.gradle'
 dependencies {
   implementation ('com.github.JRWilding:awesome_library:master-SNAPSHOT')
 }
