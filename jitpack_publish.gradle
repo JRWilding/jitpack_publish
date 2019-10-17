@@ -7,9 +7,6 @@ task androidSourcesJar(type: Jar) {
 
 task androidJavadocs(type: Javadoc) {
 	source += files(android.sourceSets.main.java.srcDirs)
-	//if (kotlinLanguage && (android.sourceSets.main.kotlin.srcDirs != null)) {
-	//    source += files(android.sourceSets.main.kotlin.srcDirs)
-	//}
 	options {
 	    linksOffline 'https://developer.android.com/reference/', "file:///${android.sdkDirectory}/docs/reference/"
 	}
