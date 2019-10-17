@@ -6,7 +6,14 @@ task androidSourcesJar(type: Jar) {
 }
 
 task androidJavadocs(type: Javadoc) {
-	source = android.sourceSets.main.java
+	source += files(android.sourceSets.main.java.srcDirs)
+	if (kotlinLanguage && (android.sourceSets.main.kotlin.srcDirs != null)) {
+	    source += files(android.sourceSets.main.kotlin.srcDirs)
+	}
+	options {
+	    linksOffline 'https://developer.android.com/reference/', "file:///${android.sdkDirectory}/docs/reference/"
+	}
+	exclude '**/*.cpp', '**/*.groovy', '**/*.kt', '**/*.md', '**/R.html', '**/R.*.html'
 }
 
 task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
